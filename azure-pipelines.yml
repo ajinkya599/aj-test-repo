@@ -11,12 +11,12 @@ steps:
 #     containerRegistry: ajAcr3
 #     command: login
     
-- task: Docker@1
-  displayName: 'Docker login'
-  inputs:
-    containerregistrytype: Container Registry
-    dockerRegistryEndpoint: ajAcr3
-    command: login
+# - task: Docker@1
+#   displayName: 'Docker login'
+#   inputs:
+#     containerregistrytype: Container Registry
+#     dockerRegistryEndpoint: ajAcr3
+#     command: login
     
 # - bash: |
 #    docker build -t ajacr3.azurecr.io/test:$(Build.BuildId) .
