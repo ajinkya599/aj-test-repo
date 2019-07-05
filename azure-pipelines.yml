@@ -1,0 +1,17 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  system.debug: true
+
+steps:
+- task: Docker@2
+  displayName: 'Docker login'
+  inputs:
+    containerRegistry: ajAcr2
+    command: login
+    
+- bash: |
+   docker build -t ajacr2.azurecr.io/test:$(Build.BuildId) .
+   docker push ajacr2.azurecr.io/test:$(Build.BuildId)
+  displayName: 'Build and push - bash'
