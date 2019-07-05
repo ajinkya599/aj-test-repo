@@ -10,6 +10,19 @@ steps:
   inputs:
     containerRegistry: ajAcr3
     command: login
+
+- task: DockerCompose@0
+  displayName: 'Run a Docker Compose command'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerComposeCommand: up
+    
+- task: DockerCompose@0
+  displayName: 'Run a Docker Compose command'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: ajAcr3
+    dockerComposeCommand: up
     
 # - task: Docker@1
 #   displayName: 'Docker login'
@@ -28,16 +41,3 @@ steps:
     containerRegistry: ajAcr3
     repository: test
   displayName: Docker@2 - Build and Push
-
-# - task: DockerCompose@0
-#   displayName: 'Run a Docker Compose command'
-#   inputs:
-#     containerregistrytype: 'Container Registry'
-#     dockerComposeCommand: up
-    
-# - task: DockerCompose@0
-#   displayName: 'Run a Docker Compose command'
-#   inputs:
-#     containerregistrytype: 'Container Registry'
-#     dockerRegistryEndpoint: ajAcr3
-#     dockerComposeCommand: up
