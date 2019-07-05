@@ -18,10 +18,10 @@ steps:
 #     dockerRegistryEndpoint: ajAcr3
 #     command: login
     
-# - bash: |
-#    docker build -t ajacr3.azurecr.io/test:$(Build.BuildId) .
-#    docker push ajacr3.azurecr.io/test:$(Build.BuildId)
-#   displayName: 'Build and push - bash'
+- bash: |
+   docker build -t ajacr3.azurecr.io/test:$(Build.BuildId) .
+   docker push ajacr3.azurecr.io/test:$(Build.BuildId)
+  displayName: 'Build and push - bash'
   
 - task: Docker@2
   inputs:
