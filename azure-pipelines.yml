@@ -5,10 +5,17 @@ variables:
   system.debug: true
 
 steps:
-- task: Docker@2
+# - task: Docker@2
+#   displayName: 'Docker login'
+#   inputs:
+#     containerRegistry: ajAcr3
+#     command: login
+    
+- task: Docker@1
   displayName: 'Docker login'
   inputs:
-    containerRegistry: ajAcr3
+    containerregistrytype: Container Registry
+    dockerRegistryEndpoint: ajAcr3
     command: login
     
 # - bash: |
@@ -16,15 +23,15 @@ steps:
 #    docker push ajacr3.azurecr.io/test:$(Build.BuildId)
 #   displayName: 'Build and push - bash'
 
-# - task: DockerCompose@0
-#   displayName: 'Run a Docker Compose command'
-#   inputs:
-#     containerregistrytype: 'Container Registry'
-#     dockerComposeCommand: up
-    
 - task: DockerCompose@0
   displayName: 'Run a Docker Compose command'
   inputs:
     containerregistrytype: 'Container Registry'
-    dockerRegistryEndpoint: ajAcr3
     dockerComposeCommand: up
+    
+# - task: DockerCompose@0
+#   displayName: 'Run a Docker Compose command'
+#   inputs:
+#     containerregistrytype: 'Container Registry'
+#     dockerRegistryEndpoint: ajAcr3
+#     dockerComposeCommand: up
