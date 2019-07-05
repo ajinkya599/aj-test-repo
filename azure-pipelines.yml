@@ -16,14 +16,12 @@ steps:
 #    docker push ajacr3.azurecr.io/test:$(Build.BuildId)
 #   displayName: 'Build and push - bash'
 
-steps:
 - task: DockerCompose@0
   displayName: 'Run a Docker Compose command'
   inputs:
     containerregistrytype: 'Container Registry'
     dockerComposeCommand: up
     
-# steps:
 # - task: DockerCompose@0
 #   displayName: 'Run a Docker Compose command'
 #   inputs:
